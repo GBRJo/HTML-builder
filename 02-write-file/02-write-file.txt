@@ -1,6 +1,2 @@
-no
-no
-yes
-yes
-yes
-yes
+hj
+hj

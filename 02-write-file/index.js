@@ -24,13 +24,17 @@ rl.question('(^･ｪ･^) Are you a cat?: ', function (input) {
 
 function secondQuestion() {
   rl.question('(^･ｪ･^) Are you sure?: ', function (input) {
-    fs.appendFile(filePath, input + '\n', function (error) {
-      if (error) {
-        console.log('(=^‥^)/ Somesign went wrong: ' + error);
-      } else {
-        console.log('(^-ｪ-^) I have saved your response');
-      }
-      secondQuestion();
-    });
+    if (input === 'exit') {
+      process.exit(0);
+    } else {
+      fs.appendFile(filePath, input + '\n', function (error) {
+        if (error) {
+          console.log('(=^‥^)/ Somesign went wrong: ' + error);
+        } else {
+          console.log('(^-ｪ-^) I have saved your response');
+        }
+        secondQuestion();
+      });
+    }
   });
 }
